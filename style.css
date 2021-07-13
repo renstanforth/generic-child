@@ -1,0 +1,107 @@
+/*
+ Theme Name:   Generic Child
+ Theme URI:    https://wordpress.org/themes/generic/
+ Description:  Generic Child Theme
+ Author:       Ren Stanforth
+ Author URI:   http://renstanforth.com/
+ Template:     generic
+ Version:      1.0.0
+ License:      GNU General Public License v3 or later
+ License URI:  https://github.com/renstanforth/generic-child/blob/main/LICENSE
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  genericchild
+*/
+
+body {
+  background: #242424;
+  font-family: 'Nunito', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+}
+
+#container {
+  background: #f7f8fa;
+  padding-top: 75px;
+}
+
+#search {
+  display: none;
+}
+
+#header {
+  padding: 15px 45px;
+}
+
+#menu {
+  float: left;
+  margin-left: 45px;
+  width: 90%;
+}
+
+#menu div:first-of-type {
+  width: 100%;
+}
+
+#menu a {
+  margin-right: 0;
+  padding: 0;
+  line-height: 46px;
+}
+
+#menu ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  width: 100%;
+}
+
+#menu ul li {
+  float: left;
+  padding: 0 15px;
+}
+
+#menu ul li:hover,
+#menu ul li.current-menu-item,
+#menu ul li:nth-last-child(1) ul.sub-menu li a {
+  background: #3b3b3d;
+  color: #ffffff;
+  border-radius: 7px;
+}
+
+#menu ul li:nth-last-child(1) {
+  float: none;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+#menu ul li:nth-last-child(1) a {
+  margin: 0;
+}
+
+#menu li.menu-item-has-children:nth-last-child(1) > a:after,
+#menu ul li.page_item_has_children:nth-last-child(1) > a:after {
+  content: '';
+}
+
+#menu ul li:nth-last-child(1) ul.sub-menu {
+  margin: 0;
+  text-align: left;
+}
+
+#menu ul li:nth-last-child(1) ul.sub-menu li {
+  padding: 0;
+}
+
+#menu ul li:nth-last-child(1) ul.sub-menu li a {
+  width: auto;
+  border: none;
+}
