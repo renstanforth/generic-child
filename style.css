@@ -5,7 +5,7 @@
  Author:       Ren Stanforth
  Author URI:   http://renstanforth.com/
  Template:     generic
- Version:      1.0.1
+ Version:      1.0.2
  License:      GNU General Public License v3 or later
  License URI:  https://github.com/renstanforth/generic-child/blob/main/LICENSE
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
@@ -36,13 +36,13 @@ h5 {
 }
 
 #header {
-  padding: 15px 45px;
+  padding: 15px 0 15px 45px;
 }
 
 #menu {
   float: left;
   margin-left: 45px;
-  width: 90%;
+  width: 93%;
 }
 
 #menu div:first-of-type {
@@ -106,4 +106,14 @@ h5 {
 #menu ul li:nth-last-child(1) ul.sub-menu li a {
   width: auto;
   border: none;
+}
+
+.page-invoices #branding #logo-container {
+  margin-top: 10px;
+}
+
+#content {
+  padding: 0;
+  margin: auto;
+  float: unset;
 }

@@ -68,3 +68,13 @@ function add_menu_dynamic_user_name( $menu_items ) {
     return $menu_items;
 }
 add_filter( 'wp_nav_menu_objects', 'add_menu_dynamic_user_name' );
+
+//Add page slug to body
+function add_slug_body_class( $classes ) {
+  global $post;
+  if ( isset( $post ) ) {
+    $classes[] = $post->post_type . '-' . $post->post_name;
+  }
+  return $classes;
+}
+add_filter( 'body_class', 'add_slug_body_class' );
