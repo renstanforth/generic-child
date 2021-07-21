@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?> <?php generic_schema_type(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=1920" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="<?php if ( is_single() ) { echo wp_strip_all_tags( get_the_excerpt(), true ); } else { bloginfo( 'description' ); } ?>" />
 <meta name="keywords" content="<?php echo implode( ', ', wp_get_post_tags( get_the_ID(), array( 'fields' => 'names' ) ) ); ?>" />
 <meta property="og:image" content="<?php if ( is_single() && has_post_thumbnail() ) { the_post_thumbnail_url( 'full' ); } elseif ( has_site_icon() ) { echo get_site_icon_url(); } ?>" />
@@ -74,7 +74,22 @@ echo '</h1>';
 </div>
 <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
 <button type="button" class="menu-toggle"><span class="menu-icon">&#9776;</span><span class="menu-text screen-reader-text"><?php esc_html_e( ' Menu', 'generic' ); ?></span></button>
-<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
+<?php
+  wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) );
+  
+  if ( function_exists('has_nav_menu') && has_nav_menu('mobile-menu') ) {
+    wp_nav_menu( array(
+      'depth' => 6,
+      'sort_column' => 'menu_order',
+      'container' => 'ul',
+      'menu_id' => 'main-nav',
+      'menu_class' => 'nav mobile-menu',
+      'theme_location' => 'mobile-menu'
+    ) );
+    } else {
+      echo "<ul class='nav mobile-menu'> <font style='color:red'>Mobile Menu has not been set</font> </ul>";
+  }
+?>
 <div id="search"><?php get_search_form(); ?></div>
 </nav>
 </header>

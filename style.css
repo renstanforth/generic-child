@@ -5,7 +5,7 @@
  Author:       Ren Stanforth
  Author URI:   http://renstanforth.com/
  Template:     generic
- Version:      1.0.3
+ Version:      1.0.4
  License:      GNU General Public License v3 or later
  License URI:  https://github.com/renstanforth/generic-child/blob/main/LICENSE
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
@@ -108,6 +108,14 @@ h5 {
   border: none;
 }
 
+#menu ul.mobile-menu{
+  display: none;
+}
+
+#menu ul.mobile-menu li:nth-last-child(1) {
+  float: left;
+}
+
 .page-invoices #branding #logo-container {
   margin-top: 10px;
 }
@@ -116,6 +124,57 @@ h5 {
   padding: 0;
   margin: auto;
   float: unset;
+}
+
+@media only screen and (max-width: 1024px) {
+  header#header {
+    padding: 15px 0 0 15px;
+  }
+
+  nav#menu {
+    width: 85%;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  header#header {
+    padding: 10px 0;
+  }
+
+  #menu.toggled ul.menu,
+  #menu.toggled ul.menu ul.sub-menu,
+  #menu.toggled ul.menu ul.children,
+  #menu ul.menu {
+    display: none;
+  }
+
+  nav#menu {
+    margin: auto;
+    width: 100%;
+  }
+
+  nav#menu.toggled ul.mobile-menu {
+    display: grid !important; /* Set to important because jQuery sets style inline */
+  }
+
+  nav#menu.toggled {
+    margin: 0;
+    width: 100%;
+  }
+
+  #menu ul li {
+    margin-bottom: 10px;
+  }
+
+  #menu li.menu-item a {
+    padding: 15px;
+  }
+
+  #menu button.menu-toggle {
+    display: unset;
+    float: none;
+  }
 }
 
 @media only screen and (max-width: 768px) {
